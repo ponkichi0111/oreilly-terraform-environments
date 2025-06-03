@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 module "webserver-cluster" {
-  source = "github.com/ponkichi0111/oreilly-terraform-modules//services/webserver-cluster?ref=v0.0.2"
+  source = "../../../../modules/services/webserver-cluster"
 
   cluster_name           = "webservices-stage"
   db_remote_state_bucket = "terraform-state-hiroyuki-2025-05-31"
@@ -13,4 +13,5 @@ module "webserver-cluster" {
   instance_type = "t2.micro"
   min_size      = 2
   max_size      = 2
+  enable_autoscaling = false
 }
